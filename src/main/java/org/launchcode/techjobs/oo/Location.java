@@ -15,11 +15,10 @@ public class Location {
 
     // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
-    public Location(String Value){
+    public Location(String aValue){
         this();
-        this.value = value;
+        this.value = aValue;
     }
-
 
     // Custom toString, equals, and hashCode methods:
 
@@ -32,10 +31,9 @@ public class Location {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
+        Location ln = (Location) o;
+        return id == ln.id;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getId());
