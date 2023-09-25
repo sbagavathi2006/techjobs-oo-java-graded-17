@@ -33,14 +33,22 @@ public class Job {
     //  match.
     @Override
     public String toString() {
-        String newline = System.lineSeparator();
-        return newline +
-                "ID: " + getId() + newline +
-                "Name: " + (!getName().isEmpty() ? getName() : "Data not available") + newline +
-                "Employer: " + (!getEmployer().toString().isEmpty() ? getEmployer().getValue() : "Data not available") + newline +
-                "Location: " + (!getLocation().toString().isEmpty() ? getLocation().getValue() : "Data not available") + newline +
-                "Position Type: " + (!getPositionType().toString().isEmpty() ? getPositionType().getValue() : "Data not available") + newline +
-                "Core Competency: " + (!getCoreCompetency().toString().isEmpty() ? getCoreCompetency().getValue() : "Data not available") +
+        String newline = System.getProperty("line.separator");
+        this.name = this.getName() == ""? "Data not available"  : getName();
+        String emp = (employer.getValue()=="") ? "Data not available" :getEmployer().getValue();
+        employer.setValue(emp);
+        String loc = (location.getValue()=="") ? "Data not available" :getLocation().getValue();
+        location.setValue(loc);
+        String pos = (positionType.getValue()=="") ? "Data not available" :getPositionType().getValue();
+        positionType.setValue(pos);
+        String com = (coreCompetency.getValue()=="") ? "Data not available" :getCoreCompetency().getValue();
+        coreCompetency.setValue(com);
+        return newline + "ID: " + getId() +
+                newline + "Name: " + this.name +
+                newline + "Employer: " + employer +
+                newline + "Location: " + location +
+                newline + "Position Type: " + positionType +
+                newline + "Core Competency: " + coreCompetency+
                 newline;
     }
     @Override
